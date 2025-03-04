@@ -1,0 +1,225 @@
+.matches-section {
+  margin-top 20px
+  padding 0 42px
+}
+
+.match-cards-wrapper {
+  display flex
+  flex-direction column
+}
+
+.match-card
+  position relative
+  background #0B0E12
+  border-radius 8px
+  padding 16px
+  margin-bottom 12px
+  cursor pointer
+  overflow hidden
+  transition background-color 0.3s ease-in-out
+
+  &:hover
+    background #0F1318
+
+  &::before
+    content ""
+    position absolute
+    top 0
+    left -100%
+    width 100%
+    height 100%
+    background: linear-gradient(90deg, #0A0E12 0%, #0F1318 100%)
+    background-size 100% auto
+    background-position left top
+    transition all 0.65s ease-in-out
+
+  &:hover::before
+    left 0
+    background-position right bottom
+
+  &:not(:hover)::before
+    transition all 0.65s ease-in-out
+    left -100%
+    background-position left top
+
+  .match-card__content, .match-card__details
+    position relative
+    z-index 1
+
+  .match-card__content
+    display flex
+    align-items center
+    justify-content space-between
+
+  .match-card__arrow
+    margin-left 12px
+    transform rotateX(0deg)
+    transition transform 0.3s ease
+
+  .match-card__arrow.expanded
+    transform rotateX(180deg)
+
+.match-card__team
+  display flex
+  align-items center
+
+.match-card__team--left
+  flex 1
+  justify-content flex-start
+
+.match-card__team--right
+  flex 1
+  justify-content flex-end
+
+.match-card__logo
+  width 40px
+  height 40px
+  border-radius 50%
+  object-fit cover
+  margin-right 8px
+
+.match-card__team--right .match-card__logo
+  margin-right 0
+  margin-left 8px
+
+.match-card__name
+  color #fff
+  font-family 'Inter', sans-serif
+  font-weight 600
+  font-size 16px
+
+.match-card__score
+  color #fff
+  font-family 'Inter', sans-serif
+  font-weight 600
+  font-size 20px
+
+.match-card__status
+  color #fff
+  height 27px
+  border-radius 4px
+  gap 10px
+  margin-top 4px
+  display flex
+  align-items center
+  justify-content center
+  width 92px
+  font-family 'Inter', sans-serif
+  font-weight 600
+  font-size 12px
+
+.match-card__center
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  flex 1
+
+.match-card__status--live
+  background-color #43AD28
+
+.match-card__status--finished
+  background-color #EB0237
+
+.match-card__status--match-preparing
+  background-color #EB6402
+  width 112px
+
+.match-card__details
+  display flex
+  flex-direction row
+  gap 12px
+  max-height 0
+  overflow hidden
+  transition max-height 0.4s ease
+
+.match-card__details.expanded
+  max-height 500px
+
+.match-card__details-team
+  padding 12px
+  background-color transparent
+  flex: 1 
+
+.match-card__players
+  display flex
+  flex-direction row
+  gap 8px
+
+.match-card__player
+  flex 1
+  display flex
+  flex-direction row
+  align-items center
+  justify-content space-between
+  background-color #101318
+  border-radius 4px
+  padding 8px 24px
+  box-sizing border-box
+  gap 8px
+
+.match-card__player-avatar
+  width 32px
+  height 32px
+  border-radius 50%
+  object-fit cover
+
+.match-card__player-name
+  color #FFFFFF
+  flex 1
+
+.match-card__player-kills {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap 4px;
+}
+
+.player-kills__label {
+  color: #FAFAFA66;
+  font-family 'Inter', sans-serif;
+  font-weight 500;
+  font-size 14px;
+}
+
+.player-kills__value {
+  color: #F2F6F6;
+  font-family 'Inter', sans-serif;
+  font-weight 600;
+  font-size 16px;
+}
+
+.match-card__summary
+  margin-top 8px
+  padding 14px 24px
+  display flex
+  flex-direction row
+  align-items center
+  justify-content space-evenly
+  background-color #101318
+  gap 8px
+
+.summary-item
+  display flex
+  justify-content center
+  align-items center
+
+.summary-item__content
+  display flex
+  flex-direction row
+  align-items center
+  flex 1
+
+.summary-item__label
+  color #FAFAFA66
+  padding 2px 4px
+  font-family 'Inter', sans-serif
+  font-weight 500
+  font-size 14px
+
+.summary-item__value
+  color #F2F6F6
+  padding 2px 4px
+  font-family 'Inter', sans-serif
+  font-weight 600
+  font-size 16px
