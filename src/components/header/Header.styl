@@ -1,329 +1,215 @@
-.matches-section
-  margin-top: 20px
-  padding: 0 42px
-
-.match-cards-wrapper
-  display: flex
-  flex-direction: column
-
-.match-card
-  position: relative
-  display: flex
-  flex-direction: row
-  justify-content: space-between
-  background: #0B0E12
-  border-radius: 8px
-  padding: 16px
-  margin-bottom: 12px
-  cursor: pointer
-  overflow: hidden
-  transition: background-color 0.3s ease-in-out
-
-.match-card:hover
-  background: #0F1318
-
-.match-card::before
-  content: ""
-  position: absolute
-  top: 0
-  left: -100%
-  width: 100%
-  height: 100%
-  background: linear-gradient(90deg, #0A0E12 0%, #0F1318 100%)
-  background-size: 100% auto
-  background-position: left top
-  transition: all 0.65s ease-in-out
-
-.match-card:hover::before
-  left: 0
-  background-position: right bottom
-
-.match-card:not(:hover)::before
-  transition: all 0.65s ease-in-out
-  left: -100%
-  background-position: left top
-
-.match-card__content,
-.match-card__details
-  position: relative
-  z-index: 1
-
-.match-card__arrow
-  position: relative
-  z-index: 1
-  transition: transform 0.3s ease
-
-.match-card__arrow
-  transform: rotate(180deg)
-  transform-origin: center
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
-
-.match-card__arrow.expanded
-  transform: rotate(180deg) rotateX(180deg)
-
-.match-card__arrow-container.mobile
-  display: none
-
-.match-card__arrow-container.desktop
-  margin-left: 12px
-
-.match-card__content
-  display: flex
-  flex-direction: column
-  width: 100%
-
-.match-card__content--top
-  display: flex
-  align-items: center
-  justify-content: space-between
-
-.match-card__content--bot
-  // Блок с деталями располагается сразу под верхним блоком
-
-.match-card__team
+.flex-container()
   display: flex
   align-items: center
 
-.match-card__team--left
-  flex: 1
-  justify-content: flex-start
-
-.match-card__team--right
-  flex: 1
-  justify-content: flex-end
-
-.match-card__logo
-  border-radius: 50%
-  object-fit: cover
-  margin-right: 14px
-
-.match-card__team--right .match-card__logo
-  margin-right: 0
-  margin-left: 14px
-
-.match-card__name
-  color: #fff
-  font-family: 'Inter', sans-serif
-  font-weight: 600
-  font-size: 16px
-
-.match-card__score
-  color: #fff
-  font-family: 'Inter', sans-serif
-  font-weight: 600
-  font-size: 20px
-
-.match-card__status
-  color: #fff
-  border-radius: 4px
-  gap: 10px
-  margin-top: 4px
-  display: flex
-  align-items: center
-  justify-content: center
-  font-family: 'Inter', sans-serif
-  font-weight: 600
-  font-size: 12px
-
-.match-card__center
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: center
-  flex: 1
-
-.match-card__status--live
-  background-color: #43AD28
-  padding: 6px 34px 6px 34px
-
-.match-card__status--finished
-  background-color: #EB0237
-  padding: 6px 21px 6px 21px
-
-.match-card__status--match-preparing
-  background-color: #EB6402
-  padding: 6px 8px 6px 8px
-
-.match-card__details
-  display: flex
-  flex-direction: row
-  max-height: 0
-  overflow: hidden
-  transition: max-height 0.4s ease
-
-.match-card__details.expanded
-  max-height: 500px
-
-.match-card__details-team
-  padding: 12px
+.header
   background-color: transparent
-  flex: 1
-
-.match-card__players
-  display: flex
-  flex-direction: row
-  gap: 8px
-
-.match-card__player
-  flex: 1
-  display: flex
-  flex-direction: row
-  align-items: center
-  justify-content: space-between
-  background-color: #101318
-  border-radius: 4px
-  padding: 8px 24px
-  box-sizing: border-box
-  gap: 8px
-
-.match-card__player-info
-  display: flex
-  justify-content: space-between
-  align-items: center
   width: 100%
+  position: relative
 
-.match-card__player-info--avatar
-  border-radius: 50%
-  object-fit: cover
-
-.match-card__player-info--name
-  color: #FFFFFF
-
-.match-card__player-kills
-  display: flex
-  flex-direction: row
-  align-items: center
-  gap: 4px
-
-.player-kills__label
-  color: #FAFAFA66
-  font-family: 'Inter', sans-serif
-  font-weight: 500
-  font-size: 14px
-
-.player-kills__value
-  color: #F2F6F6
-  font-family: 'Inter', sans-serif
-  font-weight: 600
-  font-size: 16px
-
-.match-card__summary
-  margin-top: 8px
-  padding: 14px 24px
-  display: flex
-  flex-direction: row
-  align-items: center
-  justify-content: space-evenly
-  background-color: #101318
-  gap: 8px
-
-.summary-item
-  display: flex
-  justify-content: center
-  align-items: center
-
-.summary-item__content
-  display: flex
-  flex-direction: row
-  align-items: center
-  flex: 1
-
-.summary-item__label
-  color: #FAFAFA66
-  padding: 2px 4px
-  font-family: 'Inter', sans-serif
-  font-weight: 500
-  font-size: 14px
-
-.summary-item__value
-  color: #F2F6F6
-  padding: 2px 4px
-  font-family: 'Inter', sans-serif
-  font-weight: 600
-  font-size: 16px
-
-.match-card__divider-container
-  display: none
-
-@media screen and (max-width: 1600px)
-  .match-card__details.expanded
-    flex-direction: column
-  .match-card__details-team:first-child
-    order: 3
-  .match-card__divider-container
-    order: 2
+  &__content
     display: flex
+    flex-direction: row
+    white-space: nowrap
     align-items: center
-    justify-content: center
-    margin: 0.5rem auto  // 0.5rem = 8px? Если базовый 16px, то 0.5rem = 8px
-  .match-card__divider-container .match-card__divider
-    display: block
-  .match-card__details-team:nth-child(2)
-    order: 3
+    justify-content: flex-start
+    padding: 42px 42px 0 42px
+    box-sizing: border-box
 
-@media screen and (max-width: 1100px)
-  .matches-section
-    padding: 0 12px
+  &__title
+    font-family: 'Tactic Sans', sans-serif
+    font-size: 32px
+    line-height: 100%
+    color: #FFFFFF
 
-@media screen and (max-width: 800px)
-  .match-card__player
-    flex-direction: column
-    align-items: center
-    justify-content: center
-  .match-card__arrow-container.desktop
-    display: none
-  .match-card__details
+  &__filter
+    margin-left: 24px
+
+  &__error-container
+    margin-left: auto
+    margin-right: 12px
+    box-sizing: border-box
     display: flex
-    flex-direction: column
-  .match-card__arrow-container.mobile
-    display: flex
-    order: 4
-    margin-top: 8px
-    justify-content: center
+    flex-direction: row
     align-items: center
+    gap: 10px
+    padding: 14px 24px
+    background: rgba(15, 19, 24, 1)
+    border-radius: 4px
 
-@media screen and (max-width: 600px)
-  .match-card
-    padding: 8px
-    margin-bottom: 8px
-  .match-card__content--top
-    margin: 0 0 8px 0
-  .match-card__details-team
-    padding-top: 16px
-    padding-left: 0
-    padding-right: 0
-  .match-card__status--live
-    padding: 4px 23px 4px 23px
-  .match-card__status--finished
-    padding: 4px 10px 4px 10px
-  .match-card__status--match-preparing
-    padding: 4px 6px 4px 6px
-  .match-card__logo
+  &__error-icon
     width: 28px
     height: 28px
-    margin-right: 8px
-  .match-card__team--right .match-card__logo
+    flex: none
+
+  &__error-vector
+    width: 100%
+    height: 100%
+
+  &__error-text
+    font-family: Inter
+    font-weight: 500
+    font-size: 18px
+    letter-spacing: 0%
+    color: #FFFFFF
+
+  &__refresh-button
+    background: #EB0237
+    border: none
+    border-radius: 4px
+    cursor: pointer
+    height: 56px
+    padding: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    &:hover:not(:disabled)
+      background: #A01131
+    &:disabled
+      background: #701328
+      cursor: not-allowed
+    &:disabled .header__refresh-text
+      color: #787878
+    &:disabled .header__loader
+      color: #787878
+
+  &__refresh-content
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: center
+    gap: 10px
+    padding: 0 40px
+    height: 100%
+
+  &__refresh-text
+    font-family: 'Inter', sans-serif
+    font-weight: 600
+    font-size: 18px
+    color: #FFFFFF
+
+  &__loader
+    width: 26px
+    height: 26px
+    background: none
+
+  &__icon-refresh
+    width: 26px
+    height: 26px
+    position: relative
+    flex: none
+
+.rotating
+  animation: spin 1s linear infinite
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+.drop-list-container
+  position: relative
+  min-width: 170px
+
+.drop-list-button
+  position: relative
+  padding: 16px 20px 16px 16px
+  gap: 12px
+  min-width: 170px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  background-color: rgba(11, 14, 18, 1)
+  border: none
+  border-radius: 4px
+  cursor: pointer
+  box-sizing: border-box
+  margin-right: auto
+  margin-left: 24px
+  .drop-list-button__text,
+  .drop-list-button__arrow
+    color: rgba(180, 181, 182, 1)
+  &:hover
+    background-color: rgba(15, 19, 24, 1)
+    .drop-list-button__text,
+    .drop-list-button__arrow
+      color: rgba(255, 255, 255, 1)
+  &:active
+    background-color: rgba(11, 14, 18, 1)
+    border: 1px solid rgba(23, 29, 37, 1)
+    .drop-list-button__text,
+    .drop-list-button__arrow
+      color: rgba(255, 255, 255, 1)
+
+.drop-list-button__text
+  font-family: 'Inter', sans-serif
+  font-size: 16px
+  line-height: 150%
+  font-weight: 500
+  color: rgba(180, 181, 182, 1)
+
+.drop-list-button__arrow
+  transition: transform 0.3s ease
+
+.drop-list-button__arrow--rotated
+  transform: rotate(180deg)
+
+.drop-list-dropdown
+  position: absolute
+  left: 0
+  width: 100%
+  padding: 6px 0 6px 0
+  top: calc(100% + 8px)
+  border-radius: 4px
+  background-color: rgba(11, 14, 18, 1)
+  box-sizing: border-box
+  overflow: hidden
+  z-index: 10
+  font-family: 'Inter', sans-serif
+  font-weight: 500
+  font-size: 16px
+
+.drop-list-dropdown__item
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: flex-start
+  padding: 12px
+  cursor: pointer
+  color: rgba(180, 181, 182, 1)
+  &:hover
+    background-color: rgba(17, 22, 29, 1)
+    color: rgba(255, 255, 255, 1)
+  &:active
+    background-color: rgba(13, 17, 21, 1)
+
+.drop-list-dropdown__item--active
+  background-color: rgba(15, 19, 24, 1)
+  color: rgba(104, 105, 106, 1)
+
+@media screen and (max-width: 1100px)
+  .header__content
+    flex-direction: column
+    align-items: center
+    padding: 32px 12px 0 12px
+    width: 100%
+  .header__title
+    font-size: 28px
+    margin: 0
+  .drop-list-button
+    margin-top: 14px
+    width: 100%
+    margin-left: 0
     margin-right: 0
-    margin-left: 8px
-  .match-card__player
-    padding: 7px 12px
-  .match-card__player-info--avatar
-    width: 32px
-    height: 32px
-  .match-card__name
-    font-size: 14px
-  .match-card__score
-    font-size: 14px
-  .match-card__player-info--name
-    font-size: 14px
-  .player-kills__label
-    font-size: 12px
-  .player-kills__value
-    font-size: 14px
-  .summary-item__label
-    font-size: 12px
-  .summary-item__value
-    font-size: 14px
+  .header__error-container,
+  .header__refresh-button
+    width: 100%
+    margin-left: auto
+    text-align: center
+  .header__error-container,
+  .header__refresh-button
+    margin-top: 12px
 
 @media screen and (max-width: 428px)
   .header__title
